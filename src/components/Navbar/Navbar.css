@@ -1,0 +1,17 @@
+.css-hip9hq-MuiPaper-root-MuiAppBar-root{
+    position: fixed !important;
+    top: 0;
+}
+
+.liksPaginas{
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin: auto;
+    list-style: none;
+}
+.cadaLink{
+    /* text-decoration: none; */
+    width: auto;
+    padding: 2%;
+}
