@@ -2,6 +2,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 import './Navbar.css'
+import CardWidget from '../CarWisget/CardWidget';
 const NavBar=()=>{
     return(
         
@@ -14,7 +15,7 @@ const NavBar=()=>{
                 <li className='cadaLink'>Productos</li>
                 <li className='cadaLink'>Contacto</li>
             </ul>
-            <Button color="inherit">Login</Button>
+            <CardWidget></CardWidget>
             </Toolbar>
         </AppBar>
         

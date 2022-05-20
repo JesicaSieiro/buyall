@@ -1,0 +1,8 @@
+.card_item{
+    min-width: 300px;
+    margin-left: 2%;
+}
+.card_content{
+    display: flex;
+    flex-direction: column;
+}

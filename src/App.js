@@ -1,15 +1,16 @@
 import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/Navbar/Navbar'; 
-
+import CardList  from './components/CardList/CardList';
 function App() {
   return (
     <div className="App">
       <header className="App-header"> 
         <NavBar></NavBar>
-        
-        <h1>Contenido de la pagina</h1>
       </header> 
+      <main>
+      <CardList title="Productos más vendidos"></CardList>
+      </main>
     </div>
   );
 }
