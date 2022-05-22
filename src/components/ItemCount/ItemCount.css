@@ -1,0 +1,9 @@
+.buy_item{
+    display: flex;
+    flex-direction: column;
+  
+}
+.count_item{
+    display: flex;
+    flex-direction: row; 
+}

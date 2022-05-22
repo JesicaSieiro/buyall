@@ -5,8 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import './CardItem.css'
+import ItemCount from '../ItemCount/ItemCount'
 const CardItem=(props)=>{
-  const {title,price,imagen}=props;
+  const {title,price,imagen,stok}=props;
     return(
         <Card sx={{ maxWidth: 345 }} className="card_item">
         <CardMedia
@@ -24,8 +25,9 @@ const CardItem=(props)=>{
             ${price}
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">COMPRAR</Button>
+        <CardActions className='card_itemBuy'>
+          {/* <Button size="small">COMPRAR</Button> */}
+          <ItemCount  stok={stok}></ItemCount>
           
         </CardActions>
       </Card>

@@ -6,3 +6,7 @@
     display: flex;
     flex-direction: column;
 }
+
+.card_itemBuy{
+    justify-content: space-evenly;
+}
