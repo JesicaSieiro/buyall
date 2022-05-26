@@ -1,23 +1,40 @@
-import CardItem from '../CardItem/CardItem';
+import CardItem from '../CardItem/CardItem'
 import Grid from '@mui/material/Grid';
-const CardList=(prop)=>{
-    
-    return(
-        <div>
-            <h1>{prop.title}</h1>
-            <Grid container spacing={4}>
-                <Grid item md={3}>
-                <CardItem title='Zapatilla mujer runner' price={7500} imagen='zapatilla1.jpg' stok={7}></CardItem>
-                </Grid>
-                <Grid item md={3}>
-                <CardItem title='Zapatilla man runner' price={6500} imagen='zapatilla2.jpg' stok={9}></CardItem>
-                </Grid>
-                <Grid item md={3}>
-                <CardItem title='Zapatilla basquet' price={9000} imagen='zapatilla3.jpg' stok={8}></CardItem>
-                </Grid>
-            </Grid>
-        </div>
+const CardList=(productos)=>{
+ /*    const listProductos= Object.values(productos).map((item)=>{
+        console.log(item)
+        return(
+            item.forEach(element => {
+                <Grid item md={3} key={element.id}>
+                    <CardItem title={element.title} price={element.price} imagen={element.imagen} stok={element.stok}></CardItem>
+                 </Grid>
+            })
         
+        )
+    }); */
+    return(
+       
+            <Grid container spacing={4}>
+                {
+                    Object.values(productos).map((item)=>{
+                        return(
+                            /* item.forEach(element => {
+                                <Grid item md={3} key={element.id}>
+                                    <CardItem title={element.title} price={element.price} imagen={element.imagen} stok={element.stok}></CardItem>
+                                 </Grid>
+                            })
+                         */
+                        
+                        item.map((prod)=>{
+                            {console.log(prod)}
+                            <Grid item md={3} key={prod.id}>
+                                    <CardItem title={prod.title} price={prod.price} imagen={prod.imagen} stok={prod.stok}></CardItem>
+                            </Grid>
+                        })
+                        )
+                    })
+                }
+            </Grid>
     )
    
 }

@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
 import NavBar from './components/Navbar/Navbar'; 
-import CardList  from './components/CardList/CardList';
+/* import CardList  from './components/CardList/CardList'; */
+import CardListContainer from './components/CardListContainer/CardListContainer';
 function App() {
   return (
     <div className="App">
@@ -9,7 +10,7 @@ function App() {
         <NavBar></NavBar>
       </header> 
       <main>
-      <CardList title="Productos más vendidos"></CardList>
+      <CardListContainer title="Productos más vendidos"></CardListContainer>
       </main>
     </div>
   );
