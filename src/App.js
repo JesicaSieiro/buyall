@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/Navbar/Navbar'; 
 /* import CardList  from './components/CardList/CardList'; */
 import CardListContainer from './components/CardListContainer/CardListContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 function App() {
   return (
     <div className="App">
@@ -11,6 +12,7 @@ function App() {
       </header> 
       <main>
       <CardListContainer title="Productos más vendidos"></CardListContainer>
+      <ItemDetailContainer></ItemDetailContainer>
       </main>
     </div>
   );

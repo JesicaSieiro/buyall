@@ -1,13 +1,14 @@
 import { useState,useEffect } from "react"
 import CardList from "../CardList/CardList";
+import backendProducts from "../../utils/productsMock";
 import Grid from '@mui/material/Grid';
 const CardListContainer=(prop)=>{
     //lista de productos
-    const backendProducts=[
+/*     const backendProducts=[
         {id:1, title:'Zapatilla mujer runner', price:7500, imagen:'zapatilla1.jpg', stok:7},
         {id:2, title:'Zapatilla man runner', price:6500, imagen:'zapatilla2.jpg', stok:9},
         {id:1, title:'Zapatilla basquet', price:9000, imagen:'zapatilla3.jpg', stok:2}
-    ]
+    ] */
 
     const[products,setProducts]=useState([]);
     const getProducts = () => {
