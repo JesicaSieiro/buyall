@@ -1,7 +1,10 @@
 import { styled } from '@mui/material/styles';
+import { Link } from 'react-router-dom';
 import Grid from '@mui/material/Grid';
-
+import Button from '@mui/material/Button';
+import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
+import { useState } from 'react';
 
 
 const Img = styled('img')({
@@ -11,8 +14,17 @@ const Img = styled('img')({
   maxHeight: '100%',
 });
 
+
 const ItemDetail=({data})=>{
-    console.log("Data desde Item Detal: ",data)
+    const[cantidad, setCantidad]=useState(0);
+    const[showButton, setShowButton]=useState(false);
+    
+
+    const addProductToCart=()=>{
+        console.log("datos del producto:",data);
+        console.log("Cantidad Comprada:",cantidad);
+    }
+
     return(
         <div>
             
@@ -25,14 +37,12 @@ const ItemDetail=({data})=>{
                    <h2>{data.title}</h2> 
             
                    <h3>${data.price}</h3> 
-                   {/* <h4>Colores</h4> 
-                   <div className='colores'>
-                       <span className="red"></span>
-                       <span className="blue"></span>
-                       <span className="green"></span> 
-                       <span className="pink"></span>
-                   </div> */}
-                    
+                {/* si el valor del useState es true muestra el ItemCount y si es false muestra el boton */}
+                {!showButton?
+                   <ItemCount actualizarCantidad={setCantidad} cantidad={cantidad} stok={data.stok} setShowButton={setShowButton}></ItemCount>
+                  :
+                   <Button variant="outlined" onClick={addProductToCart}><Link to='/cart'>Terminar compra</Link></Button> }
+                   
             </Grid>
         
         </Grid>
