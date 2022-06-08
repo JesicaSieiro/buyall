@@ -2,13 +2,8 @@ import { useState,useEffect } from "react"
 import CardList from "../CardList/CardList";
 import backendProducts from "../../utils/productsMock";
 import Grid from '@mui/material/Grid';
-const CardListContainer=(prop)=>{
-    //lista de productos
-/*     const backendProducts=[
-        {id:1, title:'Zapatilla mujer runner', price:7500, imagen:'zapatilla1.jpg', stok:7},
-        {id:2, title:'Zapatilla man runner', price:6500, imagen:'zapatilla2.jpg', stok:9},
-        {id:1, title:'Zapatilla basquet', price:9000, imagen:'zapatilla3.jpg', stok:2}
-    ] */
+const CardListContainer=({title,category})=>{
+ 
 
     const[products,setProducts]=useState([]);
     const getProducts = () => {
@@ -22,7 +17,8 @@ const CardListContainer=(prop)=>{
     useEffect(()=>{
         getProducts()
         .then((result)=>{
-            setProducts(result)
+            //setProducts(result)
+            filterByCategory(result)
         })
         .catch((err)=>{
             console.log("fallo la promesa: ",err)
@@ -30,12 +26,21 @@ const CardListContainer=(prop)=>{
         .finally(()=>{
             console.log("Finalizo la promesa")
         })
-    },[])
+    },[category])
+
+    const filterByCategory = (array) => {
+        return array.map( (item) => {
+            if(item.category == category ) {
+                console.log(item)
+                return setProducts(products => [...products,item])
+            }
+        })
+    }
 
     return(
         <div>
             {console.log("container: ", products)}
-            <h1>{prop.title}</h1>
+            <h1>{title}</h1>
             <CardList productos={products}></CardList>
         </div>
         

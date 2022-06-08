@@ -18,8 +18,8 @@ const CardItem=(props)=>{
           component="img"
           height="200"
           
-          image={`./${imagen}`}
-          alt="zapatilla1"
+          image={`../${imagen}`}
+          alt="zapatilla"
         />
         <Button ><Link to={`/product/${id}`}>Ver Detalle</Link></Button>
         <CardContent className='card_content'>
