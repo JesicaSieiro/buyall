@@ -4,8 +4,8 @@ import Grid from '@mui/material/Grid';
 import Button from '@mui/material/Button';
 import ItemCount from '../ItemCount/ItemCount'
 import './ItemDetail.css'
-import { useState } from 'react';
-
+import { useState , useContext } from 'react';
+import {CartContext} from '../../context/CartContext'
 
 const Img = styled('img')({
   margin: 'auto',
@@ -25,6 +25,8 @@ const ItemDetail=({data})=>{
         console.log("Cantidad Comprada:",cantidad);
     }
 
+    const{cartListItems}=useContext(CartContext)
+    console.log(cartListItems)
     return(
         <div>
             
@@ -39,7 +41,7 @@ const ItemDetail=({data})=>{
                    <h3>${data.price}</h3> 
                 {/* si el valor del useState es true muestra el ItemCount y si es false muestra el boton */}
                 {!showButton?
-                   <ItemCount actualizarCantidad={setCantidad} cantidad={cantidad} stok={data.stok} setShowButton={setShowButton}></ItemCount>
+                   <ItemCount actualizarCantidad={setCantidad} producto={data} cantidad={cantidad} stok={data.stok} setShowButton={setShowButton}></ItemCount>
                   :
                    <Button variant="outlined" onClick={addProductToCart}><Link to='/cart'>Terminar compra</Link></Button> }
                    

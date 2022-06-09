@@ -12,25 +12,27 @@ import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
 import Error from './pages/Error'
 import Detalle from './pages/Detalle';
+import CartProvider from './context/CartContext';
 function App() {
   return (
     <div className="App">
-      <BrowserRouter>
-        <header className="App-header"> 
-          <NavBar></NavBar>
-          <Routes>
-            <Route path='/'element={<Home></Home>}></Route>
-            {/* <Route path='/productos'element={<Productos></Productos>}></Route> */}
-            
-            <Route path='/products/:category' element={<Productos />}/>  
-            <Route path='/product/:id'element={<Detalle></Detalle>}></Route>
+      <CartProvider >
+        <BrowserRouter>
+          <header className="App-header"> 
+            <NavBar></NavBar>
+            <Routes>
+              <Route path='/'element={<Home></Home>}></Route>
+              {/* <Route path='/productos'element={<Productos></Productos>}></Route> */}
+              
+              <Route path='/products/:category' element={<Productos />}/>  
+              <Route path='/product/:id'element={<Detalle></Detalle>}></Route>
 
-            <Route path='/contacto'element={<Contacto></Contacto>}></Route>
-            <Route path='*'element={<Error></Error>}></Route>
-          </Routes>
-        </header>
-      </BrowserRouter>
-       
+              <Route path='/contacto'element={<Contacto></Contacto>}></Route>
+              <Route path='*'element={<Error></Error>}></Route>
+            </Routes>
+          </header>
+        </BrowserRouter>
+      </CartProvider>
       <main>
       {/* <CardListContainer title="Productos más vendidos"></CardListContainer> */}
       

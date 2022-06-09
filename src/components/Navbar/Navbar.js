@@ -32,7 +32,7 @@ const NavBar=()=>{
                      aria-haspopup="true"
                      aria-expanded={open ? 'true' : undefined}
                      onClick={handleClick}
-                     disableRipple
+                     
                  >
                     Productos
                    

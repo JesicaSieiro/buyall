@@ -1,7 +1,10 @@
 /* import { useState } from "react"; */
 import Button from '@mui/material/Button';
 import './ItemCount.css'
-const ItemCount=({stok ,cantidad, actualizarCantidad, setShowButton  })=>{
+import { useState , useContext } from 'react';
+import {CartContext} from '../../context/CartContext'
+import Productos from '../../pages/Productos';
+const ItemCount=({stok ,cantidad, actualizarCantidad, setShowButton ,producto })=>{
    
     const addCount=()=>{
         
@@ -11,6 +14,7 @@ const ItemCount=({stok ,cantidad, actualizarCantidad, setShowButton  })=>{
        
        actualizarCantidad(cantidad - 1 )
     }
+    const{addProductToCart}=useContext(CartContext)
    
     return(
         <div className="buy_item" >
@@ -19,7 +23,7 @@ const ItemCount=({stok ,cantidad, actualizarCantidad, setShowButton  })=>{
                 <p>{cantidad}</p>
                 <Button onClick={addCount} disabled={cantidad==stok}>+</Button>
             </div>
-            <Button variant="outlined" onClick={()=>setShowButton(true)} >Agregar Producto</Button>
+            <Button variant="outlined" onClick={()=>{setShowButton(true);addProductToCart(producto)}} >Agregar Producto</Button>
         </div>
     )
 }
