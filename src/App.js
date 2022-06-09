@@ -21,9 +21,8 @@ function App() {
           <header className="App-header"> 
             <NavBar></NavBar>
             <Routes>
-              <Route path='/'element={<Home></Home>}></Route>
-              {/* <Route path='/productos'element={<Productos></Productos>}></Route> */}
-              
+              <Route path='/'element={<Home/>}></Route>
+              <Route path='/products'element={<Productos/>}></Route>
               <Route path='/products/:category' element={<Productos />}/>  
               <Route path='/product/:id'element={<Detalle></Detalle>}></Route>
 

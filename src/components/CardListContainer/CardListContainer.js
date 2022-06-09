@@ -1,11 +1,13 @@
-import { useState,useEffect } from "react"
+import { useState,useEffect } from "react";
+import { useParams } from 'react-router-dom'
 import CardList from "../CardList/CardList";
 import backendProducts from "../../utils/productsMock";
 import Grid from '@mui/material/Grid';
-const CardListContainer=({title,category})=>{
+const CardListContainer=({title})=>{
  
 
     const[products,setProducts]=useState([]);
+    const { category } = useParams()
     const getProducts = () => {
         return new Promise((result, reject) => {
           setTimeout(() => {
@@ -17,8 +19,15 @@ const CardListContainer=({title,category})=>{
     useEffect(()=>{
         getProducts()
         .then((result)=>{
-            //setProducts(result)
-            filterByCategory(result)
+           
+            if(category){
+                const foundItems=filterByCategory(result)
+                setProducts(foundItems)
+            }
+            else{
+                setProducts(result)
+            }
+            
         })
         .catch((err)=>{
             console.log("fallo la promesa: ",err)
@@ -29,12 +38,7 @@ const CardListContainer=({title,category})=>{
     },[category])
 
     const filterByCategory = (array) => {
-        return array.map( (item) => {
-            if(item.category == category ) {
-                console.log(item)
-                return setProducts(products => [...products,item])
-            }
-        })
+        return array.filter((item)=>item.category==category)
     }
 
     return(

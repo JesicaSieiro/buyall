@@ -46,8 +46,13 @@ const NavBar=()=>{
                         'aria-labelledby': 'basic-button',
                         }}
                         >
+                            <MenuItem onClick={handleClose}>
+                                <Link to='/products'>All</Link>
+                            </MenuItem>
                             {categories.map( (cat) => {
-                                return <MenuItem onClick={handleClose}><Link to={`/products/${cat}`}>{cat}</Link></MenuItem>
+                                return <MenuItem onClick={handleClose}>
+                                    <Link to={`/products/${cat}`}>{cat}</Link>
+                                </MenuItem>
                             })}
 
                     </Menu>
