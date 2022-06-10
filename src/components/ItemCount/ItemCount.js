@@ -19,11 +19,11 @@ const ItemCount=({stok ,cantidad, actualizarCantidad, setShowButton ,producto })
     return(
         <div className="buy_item" >
             <div className="count_item">
-                <Button onClick={removeCount} disabled={cantidad==0}>-</Button>
+                <Button onClick={removeCount} disabled={cantidad==0} className="simbolosCount">-</Button>
                 <p>{cantidad}</p>
-                <Button onClick={addCount} disabled={cantidad==stok}>+</Button>
+                <Button onClick={addCount} disabled={cantidad==stok} className="simbolosCount">+</Button>
             </div>
-            <Button variant="outlined" onClick={()=>{setShowButton(true);addProductToCart(producto)}} >Agregar Producto</Button>
+            <Button variant="outlined" onClick={()=>{setShowButton(true);addProductToCart(producto)}}   className="btnAgregar">Agregar Producto</Button>
         </div>
     )
 }

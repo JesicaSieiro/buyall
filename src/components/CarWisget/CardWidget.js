@@ -4,9 +4,15 @@ import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 import Button from '@mui/material/Button';
 import { styled } from '@mui/material/styles';
 
-import Grid from '@mui/material/Grid';
-import { useEffect,useState } from 'react'
+import Chip from '@mui/material/Chip';
+import Stack from '@mui/material/Stack';
+import DoneIcon from '@mui/icons-material/Done';
+import DeleteIcon from '@mui/icons-material/Delete';
 
+import Grid from '@mui/material/Grid';
+import { useEffect,useState,useContext } from 'react'
+import { CartContext } from '../../context/CartContext';
+import './CardWidget.css'
 
 const Img = styled('img')({
     margin: 'auto',
@@ -15,6 +21,7 @@ const Img = styled('img')({
     maxHeight: '100%',
   });
 const CardWidget=()=>{
+    const {cartListItems}=useContext(CartContext)
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
     const handleClick = (event) => {
@@ -42,17 +49,26 @@ const CardWidget=()=>{
                 'aria-labelledby': 'basic-button',
                 }}
             >
-                <Grid item xs={8}>
-                    <Img alt="Zapatilla" src="../../zapatilla2.jpg" />
-                </Grid>
-                <Grid item xs={4} className="txtDetail">
-                
-                   <h2>Zapatillas runner</h2> 
-            
-                   <h3>$6000</h3> 
-                </Grid>    
+                {cartListItems.length===0 && <p className='cartItemDetals'>No hay productos agregados en el carrito</p>}
+                {
+                    cartListItems.map((item)=>{
+                        return(
+                            <div>
+                            <div key={item.id} className="cartItem">
+                                <Grid item xs={8}>
+                                    <Img alt="Zapatilla" src={`../${item.imagen}`} />
+                                    
+                                </Grid>
+                                <Grid item xs={4} className="cartItemDetals">
+                                <p>{item.title}</p> 
+                                <p>${item.price}</p> 
+                                </Grid>  
+                            </div>
                            
-                Productos
+                            </div>
+                         )
+                    })
+                }
 
             </Menu>
         </div>

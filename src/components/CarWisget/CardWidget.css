@@ -1,0 +1,13 @@
+.cartItem{
+    display: flex; justify-content: space-around;
+    flex-direction: column;
+    width: 200px;
+    height: 200px;
+}
+.cartItemDetals{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-weight: bold;
+    margin: 0 10px !important;
+}

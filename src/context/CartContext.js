@@ -5,7 +5,11 @@ const CartProvider=({children})=>{
     const [cartListItems, setcartListItems]=useState([])
     const addProductToCart=(product)=>{
         console.log("se agrego el producto:", product)
-        setcartListItems([product])
+        const isInCart=cartListItems.find(item=>item.id==product.id)
+        if(!isInCart){
+            setcartListItems(cartListItems=>[...cartListItems,product])
+        }
+        
     }
     const data={
         cartListItems,
