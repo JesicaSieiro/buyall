@@ -16,6 +16,7 @@ const ItemCount=({stok ,cantidad, actualizarCantidad, setShowButton ,producto })
     }
     const{addProductToCart}=useContext(CartContext)
    
+   const productoNuevo={...producto,cantidad}
     return(
         <div className="buy_item" >
             <div className="count_item">
@@ -23,7 +24,7 @@ const ItemCount=({stok ,cantidad, actualizarCantidad, setShowButton ,producto })
                 <p>{cantidad}</p>
                 <Button onClick={addCount} disabled={cantidad==stok} className="simbolosCount">+</Button>
             </div>
-            <Button variant="outlined" onClick={()=>{setShowButton(true);addProductToCart(producto)}}   className="btnAgregar">Agregar Producto</Button>
+            <Button variant="outlined" onClick={()=>{setShowButton(true);addProductToCart(productoNuevo)}}   className="btnAgregar">Agregar Producto</Button>
         </div>
     )
 }

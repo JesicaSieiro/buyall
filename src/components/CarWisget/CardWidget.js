@@ -59,11 +59,15 @@ const CardWidget=()=>{
                                     <Img alt="Zapatilla" src={`../${item.imagen}`} />
                                     
                                 </Grid>
-                                <Grid item xs={4} className="cartItemDetals">
+                                <Grid item xs={16} className="cartItemDetals">
                                 <p>{item.title}</p> 
-                                <p>${item.price}</p> 
+                                <p>${item.price}</p>
+                                <p>-</p>
+                                <p>(cant.{item.cantidad})</p> 
                                 </Grid>  
+                               
                             </div>
+                          
                            
                             </div>
                          )

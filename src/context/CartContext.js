@@ -8,6 +8,7 @@ const CartProvider=({children})=>{
         const isInCart=cartListItems.find(item=>item.id==product.id)
         if(!isInCart){
             setcartListItems(cartListItems=>[...cartListItems,product])
+           // setcartListItems([...cartListItems,product])
         }
         
     }
