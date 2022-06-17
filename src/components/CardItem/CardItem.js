@@ -4,12 +4,18 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import './CardItem.css'
+import {CartContext} from '../../context/CartContext';
+import { useContext } from 'react';
+import './CardItem.css';
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom';
-const CardItem=(props)=>{
- console.log("item:",props[0])
-  const {id,title,price,imagen,stok}=props;
+
+const CardItem=({id,title,price,imagen,stok,cantidad, setCantidad} )=>{
+/* a */
+/* 
+ const{cartListItems,cantidad, setCantidad}=useContext(CartContext); */
+/* 
+  const {id,title,price,imagen,stok}=props; */
   console.log("id",id)
     return(
       <div className="card_item">
@@ -32,7 +38,7 @@ const CardItem=(props)=>{
         </CardContent>
         <CardActions className='card_itemBuy'>
           {/* <Button size="small">COMPRAR</Button> */}
-          <ItemCount  stok={stok}></ItemCount>
+          <ItemCount actualizarCantidad={setCantidad} producto={{id,title,price,imagen,stok}} cantidad={cantidad} stok={stok}></ItemCount>
           
         </CardActions>
       </Card>

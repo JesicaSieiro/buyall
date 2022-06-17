@@ -16,17 +16,19 @@ const Img = styled('img')({
 
 
 const ItemDetail=({data})=>{
-    const[cantidad, setCantidad]=useState(0);
+    /* const[cantidad, setCantidad]=useState(0); */
     const[showButton, setShowButton]=useState(false);
     
+    const{cartListItems,cantidad, setCantidad}=useContext(CartContext)
+    console.log(cartListItems)
+    console.log(cantidad);
 
-    const addProductToCart=()=>{
+    /* const addProductToCart=()=>{
         console.log("datos del producto:",data);
         console.log("Cantidad Comprada:",cantidad);
-    }
+    } */
 
-    const{cartListItems}=useContext(CartContext)
-    console.log(cartListItems)
+    
     return(
         <div>
             
@@ -43,7 +45,7 @@ const ItemDetail=({data})=>{
                 {!showButton?
                    <ItemCount actualizarCantidad={setCantidad} producto={data} cantidad={cantidad} stok={data.stok} setShowButton={setShowButton}></ItemCount>
                   :
-                   <Button variant="outlined" onClick={addProductToCart}><Link to='/cart'>Terminar compra</Link></Button> }
+                   <Button variant="outlined" ><Link to='/cart'>Terminar compra</Link></Button> }
                    
             </Grid>
         

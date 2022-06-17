@@ -3,6 +3,7 @@ const CartContext=createContext();
 
 const CartProvider=({children})=>{
     const [cartListItems, setcartListItems]=useState([])
+    const[cantidad, setCantidad]=useState(0);
     const addProductToCart=(product)=>{
         console.log("se agrego el producto:", product)
         const isInCart=cartListItems.find(item=>item.id==product.id)
@@ -14,7 +15,9 @@ const CartProvider=({children})=>{
     }
     const data={
         cartListItems,
-        addProductToCart
+        addProductToCart,
+        cantidad,
+        setCantidad
     }
     return(
         <CartContext.Provider value={data}>
