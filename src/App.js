@@ -13,6 +13,7 @@ import Contacto from './pages/Contacto'
 import Error from './pages/Error'
 import Detalle from './pages/Detalle';
 import CartProvider from './context/CartContext';
+import Cart from './pages/Cart';
 function App() {
   return (
     <div className="App">
@@ -25,8 +26,8 @@ function App() {
               <Route path='/products'element={<Productos/>}></Route>
               <Route path='/products/:category' element={<Productos />}/>  
               <Route path='/product/:id'element={<Detalle></Detalle>}></Route>
-
               <Route path='/contacto'element={<Contacto></Contacto>}></Route>
+              <Route path='/cart' element={<Cart/>}></Route>
               <Route path='*'element={<Error></Error>}></Route>
             </Routes>
           </header>

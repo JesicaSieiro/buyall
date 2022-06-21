@@ -10,13 +10,13 @@ import './CardItem.css';
 import ItemCount from '../ItemCount/ItemCount'
 import { Link } from 'react-router-dom';
 
-const CardItem=({id,title,price,imagen,stok,cantidad, setCantidad} )=>{
+const CardItem=({producto,cantidad, setCantidad} )=>{
 /* a */
 /* 
  const{cartListItems,cantidad, setCantidad}=useContext(CartContext); */
 /* 
   const {id,title,price,imagen,stok}=props; */
-  console.log("id",id)
+  console.log("id",producto.id)
     return(
       <div className="card_item">
         <Card sx={{ maxWidth: 600 }}>
@@ -24,22 +24,20 @@ const CardItem=({id,title,price,imagen,stok,cantidad, setCantidad} )=>{
           component="img"
           height="200"
           
-          image={`../${imagen}`}
+          image={`../${producto.imagen}`}
           alt="zapatilla"
         />
-        <Button ><Link to={`/product/${id}`}>Ver Detalle</Link></Button>
+        <Button ><Link to={`/product/${producto.id}`}>Ver Detalle</Link></Button>
         <CardContent className='card_content'>
           <Typography gutterBottom variant="h5" component="div">
-            {title}
+            {producto.title}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            ${price}
+            ${producto.price}
           </Typography>
         </CardContent>
         <CardActions className='card_itemBuy'>
-          {/* <Button size="small">COMPRAR</Button> */}
-          <ItemCount actualizarCantidad={setCantidad} producto={{id,title,price,imagen,stok}} cantidad={cantidad} stok={stok}></ItemCount>
-          
+          <ItemCount actualizarCantidad={setCantidad} producto={producto} cantidad={cantidad} stok={producto.stok} ></ItemCount>
         </CardActions>
       </Card>
       </div>

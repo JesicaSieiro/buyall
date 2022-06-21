@@ -63,7 +63,7 @@ const CardWidget=()=>{
                                 <p>{item.title}</p> 
                                 <p>${item.price}</p>
                                 <p>-</p>
-                                <p>(cant.{item.cantidad})</p> 
+                                <p>(cant.{item.quantity})</p> 
                                 </Grid>  
                                
                             </div>

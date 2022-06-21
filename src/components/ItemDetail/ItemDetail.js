@@ -19,9 +19,9 @@ const ItemDetail=({data})=>{
     /* const[cantidad, setCantidad]=useState(0); */
     const[showButton, setShowButton]=useState(false);
     
-    const{cartListItems,cantidad, setCantidad}=useContext(CartContext)
+    const{cartListItems,setCantidad,cantidad}=useContext(CartContext)
     console.log(cartListItems)
-    console.log(cantidad);
+    console.log(data.quantity);
 
     /* const addProductToCart=()=>{
         console.log("datos del producto:",data);
