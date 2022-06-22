@@ -24,7 +24,7 @@ const CardItem=({producto,cantidad, setCantidad} )=>{
           component="img"
           height="200"
           
-          image={`../${producto.imagen}`}
+          image={`./${producto.imagen}`}
           alt="zapatilla"
         />
         <Button ><Link to={`/product/${producto.id}`}>Ver Detalle</Link></Button>

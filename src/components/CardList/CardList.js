@@ -11,9 +11,8 @@ const CardList=({productos})=>{
                 {
                   productos.map((item)=>{
                     console.log("listaItem",item.id)
+                    console.log("Item",item)
                         return(
-                        
-                           
                             <Grid item md={3} key={item.id}>
                                    {/*  <CardItem actualizarCantidad={setCantidad}   cantidad={cantidad} title={title} price={price} imagen={imagen} stok={stok} id={id}></CardItem> */}
                                    <CardItem actualizarCantidad={setCantidad} producto={item} cantidad={cantidad} stok={item.stok} ></CardItem>

@@ -2,30 +2,37 @@ import { useState,useEffect } from "react";
 import { useParams } from 'react-router-dom'
 import CardList from "../CardList/CardList";
 import backendProducts from "../../utils/productsMock";
-import Grid from '@mui/material/Grid';
+//Firestore
+import db from '../../utils/firebaseConfig';
+import { collection, getDocs } from "firebase/firestore";
+
 const CardListContainer=({title})=>{
  
-
+  
     const[products,setProducts]=useState([]);
     const { category } = useParams()
-    const getProducts = () => {
-        return new Promise((result, reject) => {
-          setTimeout(() => {
-            result(backendProducts)
-          }, 2000);
-        });
-      };
+    const getProducts = async () => {
+        const productCollection = collection(db, "productos")
+        const productSnapshot = await getDocs(productCollection);
+        const productList = productSnapshot.docs.map((doc) => {
+            let product = doc.data()
+            product.id = doc.id
+            return product
+        })
+        return productList
+    }
 
     useEffect(()=>{
         getProducts()
-        .then((result)=>{
+        .then((productos)=>{
            
             if(category){
-                const foundItems=filterByCategory(result)
+                const foundItems=filterByCategory(productos)
                 setProducts(foundItems)
             }
             else{
-                setProducts(result)
+                setProducts(productos)
+              
             }
             
         })
@@ -33,6 +40,7 @@ const CardListContainer=({title})=>{
             console.log("fallo la promesa: ",err)
         })
         .finally(()=>{
+           
             console.log("Finalizo la promesa")
         })
     },[category])
